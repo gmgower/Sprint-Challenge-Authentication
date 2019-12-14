@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const Users = require('./auth-model.js');
 
+const secrets = require('../config/secrets.js');
+
 router.post('/register', (req, res) => {
   // implement registration
   let user = req.body;
@@ -48,15 +50,13 @@ function getJwtToken(user) {
     subject: user.id,
     username: user.username, 
   };
-  
-  const secret = process.env.JWT_SECRET || 'is it secret, is it safe?'
 
   const options = {
     expiresIn: '1hr'
   };
 
   //? s16 secret.jwtSecret
-  return jwt.sign(payload, secret, options)
+  return jwt.sign(payload, secrets.jwtSecret, options)
 }
 
 module.exports = router;
