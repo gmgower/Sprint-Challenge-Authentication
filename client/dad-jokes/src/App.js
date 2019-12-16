@@ -17,8 +17,8 @@ function App() {
         </nav>
         <section>
           <Route exact path="/" component={Register} />
-          <Route exact path="/dad-jokes" component={DadJokes} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/dad-jokes" component={DadJokes} />
+          <Route path="/login" component={Login} />
         </section>
         <h1>Test</h1>
       </header>
